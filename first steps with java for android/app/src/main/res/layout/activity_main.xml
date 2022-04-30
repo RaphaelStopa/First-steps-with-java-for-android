@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/titleTextMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/love_for_java"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/counterEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/titleTextMain"
+        app:layout_constraintStart_toStartOf="@+id/titleTextMain"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextMain"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/plusOneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:onClick="plusOneButtonOnClick"
+        android:text="@string/_1"
+        app:layout_constraintBottom_toTopOf="@+id/titleTextMain"
+        app:layout_constraintEnd_toEndOf="@+id/titleTextMain"
+        app:layout_constraintStart_toStartOf="@+id/titleTextMain" />
+
+    <Button
+        android:id="@+id/lessOneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:onClick="lessOneButtonOnClick"
+        android:text="- 1"
+        app:layout_constraintBottom_toTopOf="@+id/plusOneButton"
+        app:layout_constraintEnd_toEndOf="@+id/plusOneButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/plusOneButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

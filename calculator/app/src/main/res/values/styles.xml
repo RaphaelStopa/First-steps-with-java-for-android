@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--     Defined a new style with three items of color.-->
+<!--    <style name="DemoTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+<!--        <item name="colorPrimary">@color/cardview_light_background</item>-->
+
+<!--        &lt;!&ndash; Defining that new color in ColorPrimaryDark &ndash;&gt;-->
+<!--        <item name="colorPrimaryDark">@color/black</item>-->
+<!--        <item name="colorAccent">@color/cardview_light_background</item>-->
+<!--    </style>-->
+</resources>
