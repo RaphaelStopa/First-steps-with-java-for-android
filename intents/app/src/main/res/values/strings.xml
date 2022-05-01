@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">intents</string>
+    <string name="go_to_second_activity">Go to Second Activity</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="name">Name</string>
+    <string name="go_to_first_activity">go_to_first_activity</string>
+</resources>
