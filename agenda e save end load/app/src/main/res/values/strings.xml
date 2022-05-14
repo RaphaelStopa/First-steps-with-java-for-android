@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">agendaApp</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="add_contact">Add Contact</string>
+    <string name="attention">Attention</string>
+    <string name="empty_contact_alet_msg">The data will not be saved. Do you really want to go back?</string>
+</resources>
