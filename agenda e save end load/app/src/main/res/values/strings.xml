@@ -5,4 +5,6 @@
     <string name="add_contact">Add Contact</string>
     <string name="attention">Attention</string>
     <string name="empty_contact_alet_msg">The data will not be saved. Do you really want to go back?</string>
+    <string name="remove_contact">Contact Removed</string>
+    <string name="undo">Undo</string>
 </resources>

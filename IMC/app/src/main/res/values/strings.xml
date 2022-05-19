@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">IMC</string>
+
+    <string name="respOne">Muito abaixo do peso.</string>
+    <string name="respTwo">Abaixo do peso.</string>
+    <string name="respTree">Peso normal.</string>
+    <string name="respFour">Acima do peso.</string>
+    <string name="respFive">Obesidade grau 1.</string>
+    <string name="respSix">Obesidade grau 2.</string>
+    <string name="respSeven">Obesidade grau 3.</string>
+    <string name="peso">Peso</string>
+    <string name="altura">Altura</string>
+    <string name="calc">Calcular</string>
+    <string name="clear">Limpar</string>
+    <string name="err">Erro</string>
+    <string name="calcular">Calcular</string>
+    <string name="limpar">Limpar</string>
+    <string name="calculadora_de_imc">Calculadora de IMC:</string>
+    <string name="weight">weight</string>
+    <string name="todo">TODO</string>
+</resources>

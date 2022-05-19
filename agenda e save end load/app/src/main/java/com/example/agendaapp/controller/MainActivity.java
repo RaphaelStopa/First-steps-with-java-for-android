@@ -2,6 +2,9 @@ package com.example.agendaapp.controller;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +16,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.agendaapp.R;
+import com.example.agendaapp.model.Contact;
 import com.example.agendaapp.model.DataModel;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -21,52 +26,68 @@ import java.io.OutputStreamWriter;
 
 public class MainActivity extends AppCompatActivity {
 
-    ListView listView;
+    RecyclerView recyclerView;
+
+    ContactAdapter adapter = new ContactAdapter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        listView = findViewById(R.id.listview);
 
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(
+                new LinearLayoutManager(MainActivity.this)
+        );
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        recyclerView.addItemDecoration(new DividerItemDecoration(
+                MainActivity.this, DividerItemDecoration.VERTICAL));
+
+        adapter.setOnItemClickListener(new ContactAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                goToDetailActivity(i);
+            public void onItemClick(View view, int position) {
+                goToDetailActivity(position);
             }
         });
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+
+        adapter.setOnItemLongClickListener(new ContactAdapter.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                DataModel.getInstance().contacts.remove(i);
-                updateListView();
-                if(i>1){
-                    listView.requestFocusFromTouch();
-                    listView.setSelection(i-1);
-                }
+            public boolean onItemLongClick(View view, int position) {
+                Contact c = DataModel.getInstance().contacts.remove(position);
+                adapter.notifyItemRemoved(position);
                 DataModel.getInstance().saveToFile(MainActivity.this);
-                return false;
+                View contextView = findViewById(android.R.id.content);
+                Snackbar.make(contextView,R.string.remove_contact, Snackbar.LENGTH_LONG).setAction(R.string.undo, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        DataModel.getInstance().contacts.add(position, c);
+                        adapter.notifyItemInserted(position);
+                    }
+                }).show();
+                return true;
             }
         });
+
         DataModel.getInstance().loadFromFile(MainActivity.this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        updateListView();
+        adapter.notifyDataSetChanged();
     }
 
-    void updateListView(){
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                MainActivity.this,
-                android.R.layout.simple_list_item_1,
-                android.R.id.text1,
-                DataModel.getInstance().getStringContacts()
-        );
-        listView.setAdapter(adapter);
-    }
+//    void updateListView(){
+//        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+//                MainActivity.this,
+//                android.R.layout.simple_list_item_1,
+//                android.R.id.text1,
+//                DataModel.getInstance().getStringContacts()
+//        );
+//        listView.setAdapter(adapter);
+//    }
 
 
     @Override
