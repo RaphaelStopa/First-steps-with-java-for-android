@@ -39,6 +39,7 @@
             android:id="@+id/senador_btc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="goToSenatorOnClick"
             android:text="Senador" />
 
         <Space

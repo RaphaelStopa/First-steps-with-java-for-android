@@ -2,7 +2,9 @@ package com.example.comovota;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.comovota.domain.Political;
 import com.example.comovota.domain.PoliticalParty;
@@ -80,4 +82,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    public void goToSenatorOnClick (View v) {
+      Intent intent = new Intent(MainActivity.this, SenatorActivity.class);
+      // passe o que quiser usando chave e valor
+      intent.putExtra("nha", "nho");
+      //
+      startActivity(intent);
+
+  }
 }
