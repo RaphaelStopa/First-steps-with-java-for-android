@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="goToDeputyOnClick"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -50,6 +51,7 @@
             android:id="@+id/deputado_federal_btc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="goToDeputyOnClick"
             android:text="Deputado Federal" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

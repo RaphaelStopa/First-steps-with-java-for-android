@@ -51,4 +51,9 @@ public class PoliticalParty {
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
     }
+
+    @Override
+    public String toString() {
+        return name + "     "+ acronym;
+    }
 }

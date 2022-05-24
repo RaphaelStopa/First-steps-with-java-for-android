@@ -6,20 +6,11 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:padding="@dimen/box_inset_layout_padding"
-    tools:context=".SenatorActivity"
+    tools:context=".PoliticalActivity"
     tools:deviceIds="wear">
 
-    <FrameLayout
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/inner_frame_layout_padding"
-        app:boxedEdges="all">
-
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hello_world" />
-
-    </FrameLayout>
+        android:layout_height="match_parent" />
 </androidx.wear.widget.BoxInsetLayout>

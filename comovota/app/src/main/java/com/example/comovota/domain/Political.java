@@ -1,5 +1,6 @@
 package com.example.comovota.domain;
 
+import com.example.comovota.Data;
 import com.example.comovota.domain.enumeration.ElectivePositionType;
 import com.example.comovota.domain.enumeration.TypeOfVote;
 
@@ -52,6 +53,8 @@ public class Political {
         this.name = name;
     }
 
+
+
     public ElectivePositionType getElectivePositionType() {
         return electivePositionType;
     }
@@ -82,5 +85,11 @@ public class Political {
 
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
+    }
+
+
+    @Override
+    public String toString() {
+        return  '\n' + name + '\n' + '\n' + "Partido= " + politicalParty;
     }
 }

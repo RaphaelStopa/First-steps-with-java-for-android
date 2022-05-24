@@ -63,4 +63,19 @@ public class Project {
     public void setWasApproved(boolean wasApproved) {
         this.wasApproved = wasApproved;
     }
+
+    @Override
+    public String toString() {
+        return   "====================" + '\n' +
+                "Numero= " + numberOfProject + '\n' +
+                '\n' +
+                "Nome= " + name + '\n' +
+                '\n' +
+                "Resumo= " + brief + '\n' +
+                '\n' +
+                "Aprovado?  " + wasApproved +
+                '\n' +
+                '\n' +
+                "====================";
+    }
 }

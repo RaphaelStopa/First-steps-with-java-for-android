@@ -31,4 +31,10 @@ public class Vote {
     public void setProject(Project project) {
         this.project = project;
     }
+
+    @Override
+    public String toString() {
+        return  "Projeto= " + project + "\n"+
+                "Voto= " + typeOfVote;
+    }
 }
