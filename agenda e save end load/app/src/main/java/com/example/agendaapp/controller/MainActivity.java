@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.recyclerView);
+        DataModel.getInstance().createDatabase(getApplicationContext());
+
+
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(
                 new LinearLayoutManager(MainActivity.this)
@@ -55,14 +58,14 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnItemLongClickListener(new ContactAdapter.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(View view, int position) {
-                Contact c = DataModel.getInstance().contacts.remove(position);
+                Contact c = DataModel.getInstance().getContacts(position);
+                        DataModel.getInstance().removeContact(position);
                 adapter.notifyItemRemoved(position);
-                DataModel.getInstance().saveToFile(MainActivity.this);
                 View contextView = findViewById(android.R.id.content);
                 Snackbar.make(contextView,R.string.remove_contact, Snackbar.LENGTH_LONG).setAction(R.string.undo, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        DataModel.getInstance().contacts.add(position, c);
+                        DataModel.getInstance().insertContact(c, position);
                         adapter.notifyItemInserted(position);
                     }
                 }).show();
@@ -70,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        DataModel.getInstance().loadFromFile(MainActivity.this);
     }
 
     @Override

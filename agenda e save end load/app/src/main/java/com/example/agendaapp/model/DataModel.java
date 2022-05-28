@@ -11,58 +11,69 @@ import java.util.ArrayList;
 
 public class DataModel {
     private static DataModel instance = new DataModel();
-    private DataModel(){
+
+    private DataModel() {
     }
-    public static DataModel getInstance(){
+
+    public static DataModel getInstance() {
         return instance;
     }
-    public ArrayList<Contact> contacts = new ArrayList<>();
-    public ArrayList<String> getStringContacts(){
-        ArrayList<String> stringContacts = new ArrayList<>();
-        for (Contact c: contacts) {
-            stringContacts.add(c.getName());
-        }
-        return stringContacts;
+    private ArrayList<Contact> contacts;
+    private ContactDatabase database;
+
+    public void createDatabase(Context context){
+        database = new ContactDatabase(context);
+        contacts = database.getContactsFromDB();
     }
 
-    public void loadFromFile(Context context){
-        try{
-            InputStream stream = context.openFileInput("contacts.txt");
-            InputStreamReader streamReader = new InputStreamReader(stream);
-            BufferedReader reader = new BufferedReader(streamReader);
-            contacts.clear();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String []aux = line.split(";");
-                contacts.add(
-                        new Contact(aux[0], aux[1])
-                );
-            }
-
-            reader.close();
-            streamReader.close();
-            stream.close();
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-
+    public ArrayList<Contact> getContacts(){
+        return contacts;
     }
 
-    public void saveToFile(Context context){
-        try{
-            OutputStream stream = context.openFileOutput(
-                    "contacts.txt", Context.MODE_PRIVATE
-            );
-            OutputStreamWriter write = new OutputStreamWriter(stream);
-            for (Contact c: contacts){
-                write.write(c.getName() + ";" + c.getPhone() +  "\n");
-            }
-            write.flush();
-            write.close();
-            stream.close();
+    public Contact getContacts(int pos){
+        return contacts.get(pos);
+    }
 
-        }catch (Exception e){
-            e.printStackTrace();
+    public int getContactsSize(){
+        return contacts.size();
+    }
+
+    public boolean addContact(Contact c){
+        long id = database.createContactInDB(c);
+        if(id > 0){
+            c.setId(id);
+            contacts.add(c);
+            return true;
         }
+        return false;
+    }
+
+    public boolean insertContact(Contact c, int pos){
+        long id = database.insertContactInDB(c);
+        if(id > 0){
+            contacts.add(pos, c);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean updateContact(Contact c, int pos){
+        int count = database.updateContactInDB(c);
+        if(count == 1){
+            contacts.set(pos, c);
+            return true;
+        }
+        return false;
+    }
+    public boolean removeContact(int pos){
+        int count = database.removeContactInDB(
+                getContacts(pos)
+        );
+        if (count == 1){
+            contacts.remove(pos);
+            return true;
+        }
+        return false;
     }
 }
+
