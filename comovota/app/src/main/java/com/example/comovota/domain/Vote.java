@@ -32,9 +32,19 @@ public class Vote {
         this.project = project;
     }
 
+    public String voteToPortuguese(){
+        if (typeOfVote.equals(TypeOfVote.YES)) {
+            return "Sim.";
+        } else if(typeOfVote.equals(TypeOfVote.NO)){
+            return "Não.";
+        } else {
+            return "Não votou.";
+        }
+    }
+
     @Override
     public String toString() {
-        return  "Projeto= " + project + "\n"+
-                "Voto= " + typeOfVote;
+        return  project + "\n"+
+                "Voto: " + voteToPortuguese() + "\n";
     }
 }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FDFAFF"
     android:onClick="goToDeputyOnClick"
     tools:context=".MainActivity">
 
@@ -22,26 +23,26 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="35dp" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Escolha a categoria:"
+            android:text="@string/escolha_a_categoria"
             android:textAlignment="center"
             android:textSize="24sp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="25dp" />
 
         <Button
             android:id="@+id/senador_btc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="goToSenatorOnClick"
-            android:text="Senador" />
+            android:text="@string/senador" />
 
         <Space
             android:layout_width="match_parent"
@@ -52,6 +53,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="goToDeputyOnClick"
-            android:text="Deputado Federal" />
+            android:text="@string/deputado_federal" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/todo"
+            app:srcCompat="@drawable/vote" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

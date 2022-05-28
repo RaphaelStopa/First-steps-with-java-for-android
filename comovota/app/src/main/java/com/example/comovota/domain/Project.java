@@ -64,18 +64,20 @@ public class Project {
         this.wasApproved = wasApproved;
     }
 
+    public String approvedToPortugues(){
+
+        return isWasApproved() ? "Aprovado." : "Rejeitado.";
+    }
+
     @Override
     public String toString() {
-        return   "====================" + '\n' +
-                "Numero= " + numberOfProject + '\n' +
+        return  '\n' + "Número: " + numberOfProject + '\n' +
                 '\n' +
-                "Nome= " + name + '\n' +
+                "Nome: " + name + '\n' +
                 '\n' +
-                "Resumo= " + brief + '\n' +
+                "Resumo: " + brief + '\n' +
                 '\n' +
-                "Aprovado?  " + wasApproved +
-                '\n' +
-                '\n' +
-                "====================";
+                "Status do projeto:  " + approvedToPortugues()+
+                '\n';
     }
 }

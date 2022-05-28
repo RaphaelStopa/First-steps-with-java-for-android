@@ -36,7 +36,6 @@ public class Political {
     }
 
 
-
     public Long getId() {
         return id;
     }
@@ -52,8 +51,6 @@ public class Political {
     public void setName(String name) {
         this.name = name;
     }
-
-
 
     public ElectivePositionType getElectivePositionType() {
         return electivePositionType;
@@ -90,6 +87,6 @@ public class Political {
 
     @Override
     public String toString() {
-        return  '\n' + name + '\n' + '\n' + "Partido= " + politicalParty;
+        return  '\n' + name + '\n' + '\n' + "Partido: " + politicalParty;
     }
 }

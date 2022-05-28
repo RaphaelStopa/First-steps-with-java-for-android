@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Como vota</string>
+    <string name="app_name">Como vota?</string>
     <string name="title_activity_senator">SenatorActivity</string>
     <!--
     This string is used for square devices and overridden by hello_world in
@@ -9,4 +9,8 @@
     <string name="title_activity_deputy">DeputyActivity</string>
     <string name="title_activity_political">PoliticalActivity</string>
     <string name="title_activity_details">DetailsActivity</string>
+    <string name="escolha_a_categoria">Escolha a categoria:</string>
+    <string name="senador">Senador</string>
+    <string name="deputado_federal">Deputado Federal</string>
+    <string name="todo">TODO</string>
 </resources>
